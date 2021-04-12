@@ -1,0 +1,9 @@
+
+.idea/
+./private/constantes.php
+.DS_Store
+/doc projet/~$dele relationnel .docx
+#word et plus
+*.tmp
+~$*.doc*
+Backup of *.doc*

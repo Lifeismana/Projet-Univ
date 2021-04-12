@@ -1,0 +1,12 @@
+# Mod�le cr�� le : Mon Nov 25 16:28:48 CET 2019 
+Quartier (idQ, nomQ, codeInsee, typeQ, latitude, longitude, estDepart, #codePostal, #idDet) 
+Route (idR, typeT, #idQDepart, #idQArriv�) 
+Joueuse (idJ, nomJ, email, #iddet_d�tective) 
+D�tective (idDet, #idJ, #idQ) 
+Commune (codePostal, nomC, #codeDep) 
+TourMisterX (numTour, #idR) 
+Partie (idP, DateD, nbDetective, #idJ, #nomC, #idJVictoire) 
+Configuration (nomC, dateC, strategie) 
+Image (nomI, pathToFile) 
+D�partment (codeDep) 
+Inclus (nomI, nomC) 

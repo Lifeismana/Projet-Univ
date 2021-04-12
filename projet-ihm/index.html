@@ -1,0 +1,411 @@
+<!--HOAREAU Sébastien / RYBACKI Antoine / groupe 6 -->
+<!doctype html>
+<html lang="en">
+
+<head>
+	<!-- Required meta tags -->
+	<meta charset="utf-8">
+	<meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+
+	<!-- Bootstrap CSS -->
+	<link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.2.1/css/bootstrap.min.css"
+		integrity="sha384-GJzZqFGwb1QTTN6wy59ffF1BuGJpLSa9DkKMp0DgiMDm4iYMj70gZWKYbI706tWS" crossorigin="anonymous">
+</head>
+
+<body>
+	<header>
+		<h1 class="font-weight-bold text-primary text-center p-4">
+			Mémo Game Online
+		</h1>
+	</header>
+
+	<!--
+		C'est ici que vous insérez votre code HTML.
+	 -->
+	<div class="container-fluid">
+		<div class="d-flex row">
+
+			<nav class="nav-pills col-md-2 d-none d-md-block bg-light sidebar p-1 rounded collapse" id="navbar">
+				<!-- <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbar" aria-controls="navbar" aria-expanded="true">
+					<span class="navbar-toggler-icon"></span>
+				  </button> -->
+				<div class="sidebar-sticky">
+					<ul class="nav flex-column">
+						<li class="nav-item">
+							<a class="flex-sm-fill nav-link active " href="#">
+								Accueil
+							</a>
+						</li>
+						<li class="nav-item">
+							<a class="flex-sm-fill nav-link" href="#">
+								Paramètre
+							</a>
+						</li>
+						<li class="nav-item">
+							<a class="flex-sm-fill nav-link" href="#">
+								Aide
+							</a>
+						</li>
+					</ul>
+				</div>
+			</nav>
+			<main role="main" class="col-md-auto ml-sm-auto col-lg-10 px-4">
+				<div class="table-responsive rounded">
+					<table id="joliTableau" class="table">
+						<thead class="thead-dark">
+							<tr>
+								<th scope="col">#</th>
+								<th scope="col-2">nom de l'exercice</th>
+								<th scope="col">type d'activité</th>
+								<th scope="col-8">description</th>
+								<th scope="col-2">public cible</th>
+								<th scope="col-2">durée de l'activité</th>
+								<th scope="col-2">niveau de difficulté</th>
+								<th scope="col-2">date de création</th>
+								<th scope="col-2">informations sur l'auteur</th>
+								<th scope="col-2"></th>
+							</tr>
+						</thead>
+						<tbody>
+						</tbody>
+					</table>
+				</div>
+				<!--Ajout element-->
+				<a href="#formTableau" data-toggle="collapse" aria-expanded="false" aria-controls="formTableau"
+					role="button" tabindex="0" class="btn btn-primary my-2" data-placement="auto" data-tooltip="true"
+					title="appuyez ici pour ajouter une activité au tableau">
+					+
+				</a>
+				<div class="bg-light px-3 py-2 rounded collapse" id="formTableau">
+					<form id="formInput">
+						<div class="form-row">
+							<div class="form-group col-md-4">
+								<label for="nomExercice">Nom de l'exercice :</label>
+								<input type="text" class="form-control border-primary" id="nomExercice" required>
+							</div>
+							<div class="form-group col-md-4">
+								<label for="typeActivite">Type d'Activité :</label>
+								<input type="text" class="form-control border-primary" id="typeActivite" required>
+							</div>
+							<div class="form-group col-md-4">
+								<label for="Auteur">Nom de l'auteur :</label>
+								<input type="text" class="form-control border-primary" id="Auteur" autocomplete="name"
+									aria-autocomplete="both" required>
+							</div>
+						</div>
+						<div class="form-group">
+							<label for="descriptionActivite">Description de l'activié :</label>
+							<textarea class="form-control border-primary" id="descriptionActivite" rows="3"
+								required></textarea>
+						</div>
+						<div class="form-row">
+							<div class="form-group col-md-4">
+								<label for="publicCible">Public ciblé:</label>
+								<select class="form-control border-primary" id="publicCible">
+									<option>18 - 30 ans</option>
+									<option>30 - 50 ans</option>
+									<option>50 ans et plus</option>
+								</select>
+							</div>
+							<div class="form-group col-md-4">
+								<label for="dureeActivite">Durée de l'activité :</label>
+								<select class="form-control border-primary" id="dureeActivite">
+									<option>5 min</option>
+									<option>10 min</option>
+									<option>15 min</option>
+									<option>20 min</option>
+									<option>25 min</option>
+									<option>30 min</option>
+								</select>
+							</div>
+							<div class="form-group col-md-4">
+								<label for="NiveauDifficulté">Niveau de difficulté :</label>
+								<select class="form-control border-primary" id="NiveauDifficulté">
+									<option>Facile</option>
+									<option>Moyen</option>
+									<option>Difficile</option>
+									<option>Extrême</option>
+								</select>
+							</div>
+						</div>
+						<div class="row justify-content-md-center">
+							<div class="col-md-auto col-md-4">
+								<!--<button type="button" class="btn btn-lg btn-block  btn-primary" id="bouton-add-ligne-tab" onmouseover="validate_entry();" onclick="add_line();">
+									Valider
+								</button>-->
+								<!-- Button trigger modal -->
+								<button type="button" class="btn btn-lg btn-block  btn-primary" id="bouton-double"
+									onmouseover="validate_entry();" onclick="double_validation()">
+									Valider
+								</button>
+
+								<!-- Modal -->
+								<div class="modal fade" id="DoubleValidation" tabindex="-1" role="dialog"
+									aria-labelledby="exampleModalLongTitle" aria-hidden="true">
+									<div class="modal-dialog" role="document">
+										<div class="modal-content">
+											<div class="modal-header">
+												<h5 class="modal-title" id="exampleModalLongTitle">Validation</h5>
+												<button type="button" class="close" data-dismiss="modal"
+													aria-label="Close">
+													<span aria-hidden="true">&times;</span>
+												</button>
+											</div>
+											<div class="modal-body">
+												Etes-vous sur de vouloir valider?
+											</div>
+											<div class="modal-footer">
+												<button type="button" class="btn btn-primary" id="bouton-add-ligne-tab"
+													onclick="add_line()" data-dismiss="modal">Oui</button>
+												<button type="button" class="btn btn-primary" id="bouton-add-ligne-tab"
+													data-dismiss="modal">Non</button>
+											</div>
+										</div>
+									</div>
+								</div>
+							</div>
+						</div>
+						<input type="hidden" id="form-date" name="date">
+						<input type="hidden" id="tab-row" name="row">
+					</form>
+				</div>
+
+			</main>
+			<div class="toast" role="alert" aria-live="assertive" aria-atomic="true" id="popupValidation"
+				data-delay="4000" style=" position: fixed; bottom: 20px; right: 20px;">
+				<div class="toast-header">
+					<strong class="mr-auto">Info Mémo Game Online</strong>
+					<button type="button" class="ml-2 mb-1 close" data-dismiss="toast" aria-label="Close">
+						<span aria-hidden="true">&times;</span>
+					</button>
+				</div>
+				<div class="toast-body">
+					Exercice ajouté
+				</div>
+			</div>
+			<div class="toast" role="alert" aria-live="assertive" aria-atomic="true" id="popupModification"
+			data-delay="4000" style=" position: fixed; bottom: 20px; right: 20px;">
+			<div class="toast-header">
+				<strong class="mr-auto">Info Mémo Game Online</strong>
+				<button type="button" class="ml-2 mb-1 close" data-dismiss="toast" aria-label="Close">
+					<span aria-hidden="true">&times;</span>
+				</button>
+			</div>
+			<div class="toast-body">
+				Exercice modifié
+			</div>
+		</div>
+		</div>
+
+	</div>
+	<footer class="container py-5">
+		<div class="row">
+			<div>
+				<a href="https://perso.liris.cnrs.fr/stephanie.jean-daubias/enseignement/IHM/#TPprog">Référence
+					Sujet</a>
+			</div>
+	</footer>
+	<!-- Optional JavaScript: jQuery first, then Popper.js (popups), then Bootstrap JS -->
+	<script src="https://code.jquery.com/jquery-3.4.1.slim.min.js"
+		integrity="sha384-J6qa4849blE2+poT4WnyKhv5vZF5SrPo0iEjwBvKU7imGFAV0wwj1yYfoRSJoZ+n" crossorigin="anonymous">
+	</script>
+	<script src="https://cdn.jsdelivr.net/npm/popper.js@1.16.0/dist/umd/popper.min.js"
+		integrity="sha384-Q6E9RHvbIyZFJoft+2mJbHaEWldlvI9IOYy5n3zV9zzTtmI3UksdQRVvoxMfooAo" crossorigin="anonymous">
+	</script>
+	<script src="https://stackpath.bootstrapcdn.com/bootstrap/4.4.1/js/bootstrap.min.js"
+		integrity="sha384-wfSDF2E50Y2D1uUdj0O3uMBJnjuUD4Ih7YwaYd1iqfktj0Uod8GCExl3Og8ifwB6" crossorigin="anonymous">
+	</script>
+
+
+	<!--
+		C'est ici que vous insérez votre code JavaScript.
+	 -->
+	<script>
+		$('.toast').toast();
+		$(function () {
+			$('[data-tooltip="true"]').tooltip();
+		})
+
+		// on reset le form 
+		document.getElementById("formInput").reset();
+
+		function addToTable(elem) {
+			table = document.getElementById("joliTableau").getElementsByTagName('tbody')[0];
+			if (elem.tabrow) {
+				row = table.rows[elem.tabrow];
+				row.cells[1].innerHTML = elem.nom;
+				row.cells[2].innerHTML = elem.type;
+				row.cells[3].innerHTML = elem.desc;
+				row.cells[4].innerHTML = elem.cible;
+				row.cells[5].innerHTML = elem.duree;
+				row.cells[6].innerHTML = elem.difficulté;
+				row.cells[8].innerHTML = elem.auteur;
+			} else {
+				row = table.insertRow();
+				let valrow = document.getElementById("joliTableau").rows.length;
+				thvalrow = document.createElement('th');
+				thvalrow.innerHTML = valrow - 1;
+				thvalrow.setAttribute("scope", "row");
+				row.setAttribute("id", `id-row${valrow}`);
+				row.appendChild(thvalrow);
+				row.insertCell().innerHTML = elem.nom;
+				row.insertCell().innerHTML = elem.type;
+				row.insertCell().innerHTML = elem.desc;
+				row.insertCell().innerHTML = elem.cible;
+				row.insertCell().innerHTML = elem.duree;
+				row.insertCell().innerHTML = elem.difficulté;
+				document.getElementById("NiveauDifficulté").value;
+				if (!elem.date) {
+					elem.date = (new Date(Date.now() - (new Date()).getTimezoneOffset() * 60000)).toISOString().slice(0, 19)
+						.replace("T", " ");
+				}
+				row.insertCell().innerHTML = elem.date;
+				row.insertCell().innerHTML = elem.auteur;
+
+				function suppr() {
+					table.deleteRow(document.getElementById(`id-row${valrow}`).rowIndex - 1);
+				}
+
+				function mod() {
+					modifyrow(document.getElementById(`id-row${valrow}`))
+				}
+				const iddel = `id-deleterow${valrow}`;
+				const idmod = `id-modifyrow${valrow}`;
+				row.insertCell().innerHTML = `<button class="m-1 btn btn-info" id="${idmod}" data-placement="auto" data-tooltip="true"
+					title="Modifier">O</button><button class="m-1 btn btn-danger" id="${iddel}" data-placement="auto" data-tooltip="true"
+					title="Suprimer">X</button>`
+				document.getElementById(iddel).onclick = suppr;
+				document.getElementById(idmod).onclick = mod;
+			}
+		}
+
+		function modifyrow(row) {
+			document.getElementById("tab-row").value = row.rowIndex - 1;
+			document.getElementById("nomExercice").value = row.cells[1].innerHTML;
+			document.getElementById("typeActivite").value = row.cells[2].innerHTML;
+			document.getElementById("descriptionActivite").value = row.cells[3].innerHTML;
+			document.getElementById("publicCible").value = row.cells[4].innerHTML;
+			document.getElementById("dureeActivite").value = row.cells[5].innerHTML;
+			document.getElementById("NiveauDifficulté").value = row.cells[6].innerHTML;
+			document.getElementById("Auteur").value = row.cells[8].innerHTML;
+			$('#formTableau').collapse('show');
+		}
+
+		function validate_entry() {
+			console.log("We're validating data")
+			let nbrError = 0;
+			if (document.getElementById("nomExercice").value) {
+				document.getElementById("nomExercice").classList.remove("is-invalid");
+
+			} else {
+				document.getElementById("nomExercice").classList.add("is-invalid");
+				nbrError = +1;
+			}
+			if (document.getElementById("typeActivite").value) {
+				document.getElementById("typeActivite").classList.remove("is-invalid");
+			} else {
+				document.getElementById("typeActivite").classList.add("is-invalid");
+				nbrError = +1;
+			}
+			if (document.getElementById("descriptionActivite").value) {
+				document.getElementById("descriptionActivite").classList.remove("is-invalid");
+
+			} else {
+				document.getElementById("descriptionActivite").classList.add("is-invalid");
+				nbrError = +1;
+			}
+			if (document.getElementById("Auteur").value) {
+				document.getElementById("Auteur").classList.remove("is-invalid");
+
+			} else {
+				document.getElementById("Auteur").classList.add("is-invalid");
+				nbrError = +1;
+			}
+
+			if (nbrError === 0) {
+				if (document.getElementById("bouton-double").classList.contains("btn-danger")) {
+					document.getElementById("bouton-double").classList.replace("btn-danger",
+						"btn-primary");
+				}
+				return true;
+			}
+			document.getElementById("bouton-double").classList.replace("btn-primary", "btn-danger");
+			return false;
+
+		}
+
+		function double_validation() {
+			if (validate_entry()) {
+				$('#DoubleValidation').modal('show');
+			} else {
+				document.getElementById("bouton-double").classList.replace("btn-primary", "btn-danger");
+			}
+
+		}
+
+		function add_line() {
+			let data = Object();
+			data.nom = document.getElementById("nomExercice").value;
+			data.type = document.getElementById("typeActivite").value;
+			data.desc = document.getElementById("descriptionActivite").value;
+			data.cible = document.getElementById("publicCible").value;
+			data.duree = document.getElementById("dureeActivite").value;
+			data.difficulté = document.getElementById("NiveauDifficulté").value;
+			data.auteur = document.getElementById("Auteur").value;
+			data.date = document.getElementById("form-date").value;
+			data.tabrow = document.getElementById("tab-row").value;
+			addToTable(data);
+			document.getElementById("bouton-double").classList.replace("btn-primary", "btn-success");
+			setTimeout(function () {
+				document.getElementById("bouton-double").classList.replace("btn-success", "btn-primary");;
+			}, 2000);
+			if(data.tabrow){
+				$('#popupModification').toast('show');
+			}
+			else{
+				$('#popupValidation').toast('show');
+			}
+			document.getElementById("form-date").value='';
+			document.getElementById("tab-row").value='';
+			document.getElementById("formInput").reset();
+
+
+		}
+		const data1 = {
+			nom: "Manger du pain",
+			type: "Sportive",
+			desc: "Il faut se nourrir tout les jours",
+			cible: "18 - 30 ans",
+			duree: "1 min",
+			difficulté: "Facile",
+			date: "1998-07-12 23:23:23",
+			auteur: "POL"
+		};
+		const data2 = {
+			nom: "Jacob",
+			type: "Thornton",
+			desc: "Il faut se nourrir tout les jours",
+			cible: "30 - 50 ans",
+			duree: "1 min",
+			difficulté: "Facile",
+			date: "2018-07-15 22:42:42",
+			auteur: "POL"
+		};
+		const data3 = {
+			nom: "Larry",
+			type: "the Bird",
+			desc: "Il faut se nourrir tout les jours",
+			cible: "50 ans et plus",
+			duree: "1 min",
+			difficulté: "Facile",
+			date: "2012-09-21 00:00:00",
+			auteur: "POL"
+		};
+		addToTable(data1);
+		addToTable(data2);
+		addToTable(data3);
+	</script>
+
+</body>
+
+</html>

@@ -1,0 +1,12 @@
+image: node
+
+stages:
+  - lint
+
+eslint:
+  stage: lint
+  script:
+    # Install eslint
+    - npm i -D
+    # Run ESLint
+    - node_modules/eslint/bin/eslint.js js/

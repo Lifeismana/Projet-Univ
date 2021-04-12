@@ -1,0 +1,109 @@
+body {
+    background-color: #008080;
+}
+
+header,
+nav,
+main,
+footer {
+    padding: 1em 0;
+}
+
+header {
+    background-color: #ffba33;
+    background-image:linear-gradient(white, #171e27);
+
+    border-radius: 1em;
+}
+
+#divCentral {
+    display: flex;
+	justify-content: space-between;
+	align-items: stretch;
+    margin: auto;
+	box-sizing: border-box;
+	height: 100%;
+}
+
+nav {
+	flex : 2;
+    background-color: #C0C0C0;
+    padding-left: 1em;
+    padding-right: 1em;
+	margin-left: 2em;
+    line-height: 2em;
+}
+
+nav a {
+    color: #faba8e;
+    text-decoration: underline;
+}
+
+nav a:visited {
+    color: #B8860B;
+    text-decoration: none;
+}
+
+main {
+	flex : 10;
+    background-color: #556B2F;
+    padding-left: 6em;
+}
+
+footer {
+	display: flex;
+	justify-content: space-around;
+    background-color: #7dc03d;
+    border-radius: 1em;
+}
+
+#paragCrit  {
+    background: chocolate;
+    font-style: italic;
+    text-align: justify;
+    border-color: #8b0005;
+    padding: 1em;
+}
+
+#logMessage{
+    background: #000000;
+    color: #ffffff;
+    max-height:100pt;
+    overflow:auto;
+}
+.opaque {
+    opacity: 90%;
+}
+
+.tableauPartie, .tableauPartie td{
+    border-collapse: collapse;
+    border: 2px solid black;
+    font-size: 80%;
+    padding: 2px; /*TODO: ajuster le padding je sais pas le nombre qui conviendrait le plus*/
+}
+td#personne0{
+    border: 3px solid #8b0005;
+}
+td#personne1{
+    border: 3px solid #118b00;
+}
+td#personne2{
+    border: 3px solid #8b7d00;
+}
+td#personne3{
+    border: 3px solid #06008b;
+}
+td#personne4{
+    border: 3px solid #67008b;
+}
+td#personne5{
+    border: 3px solid #007b8b;
+}
+td#personne6{
+    border: 3px solid #f4caff;
+}
+.tableauStat,td,th{
+    border-collapse: collapse;
+    border: 2px solid black;
+
+}

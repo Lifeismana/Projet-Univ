@@ -1,0 +1,29 @@
+image: 
+  name: gcc
+
+stages:
+  - build
+  - test
+build:
+  stage: build
+  # instead of calling g++ directly you can also use some build toolkit like make
+  # install the necessary build tools when needed
+  # before_script:
+  script:
+    - apt-get update && apt-get install -y libsdl2-dev libsdl2-image-dev libsdl2-ttf-dev libsdl2-mixer-dev
+    - make
+  artifacts:
+    paths:
+      - bin
+      # depending on your build setup it's most likely a good idea to cache outputs to reduce the build time
+  cache:
+    paths:
+      - "obj/*.o"
+
+test:
+  stage: test
+  before_script: 
+    - apt-get update && apt-get install -y valgrind
+  script:
+    - ./bin/testRegression
+    - valgrind --leak-check=full --error-exitcode=1 ./bin/testRegression
