@@ -1,0 +1,19 @@
+#On prends pas les fichier compilé
+*.o
+*.d
+
+# fichier de valgrind
+callgrind.out.*
+
+#doit y avoir moyen de faire mieux en faisant moins spécifique
+test_board
+app
+test
+parc_graph_djik
+artificial_player
+
+#on prend pas le workspace de vscode
+*.code-workspace 
+.vscode/settings.json
+
+.vscode/tasks.json
